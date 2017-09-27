@@ -1,0 +1,15 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+// table {
+//   border: 5px solid #000;
+//   width:  100px;
+//   height: 100px;
+// }
+
+.square {
+  width:  100px;
+  height: 100px;
+  text-align: center;
+  border-color: 5px solid #000;
+}
