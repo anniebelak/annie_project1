@@ -1,23 +1,15 @@
 'use strict'
 
-// $(#1)
-// event to indicate table was selected
-// message to user "lets play a game"
-
 const player1 = 'x'
 const player2 = 'o'
 
 const gameBoard = ['', '', '', '', '', '', '', '', '']
 // var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 //
+// // .on('click') = $(this).attr('id')
 // .on('click') = $(this).attr('id')
-.on('click') = $(this).attr('id')
-.setAttribute = player1
-gameboard.push('id')
-
-
-
-
+// .setAttribute = player1
+gameBoard.push('id')
 
 // const startGame = function {
 // player1Turn === true
