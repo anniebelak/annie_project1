@@ -1,15 +1,15 @@
 'use strict'
 const store = require('./store')
 
-const signUpSuccess = function (data) {
-  $('#message').text('Signed up successfully')
-  console.log(data)
-}
-
-const signUpFailure = function (error) {
-  $('#message').text('Error on sign up')
-  console.log(error)
-}
+// const signUpSuccess = function (data) {
+//   $('#message').text('Signed up successfully')
+//   console.log(data)
+// }
+//
+// const signUpFailure = function (error) {
+//   $('#message').text('Error on sign up')
+//   console.log(error)
+// }
 
 const signInSuccess = function (response) {
   $('#message').text('Signed in successfully')
@@ -33,23 +33,34 @@ const signOutFailure = function (error) {
   console.log('signOut failure ran. error is :', error)
 }
 
-const changePasswordSuccess = function () {
-  $('#message').text('Changed password successfully')
-  console.log('changePassword success ran. and nothing was returned')
-}
+// const changePasswordSuccess = function () {
+//   $('#message').text('Changed password successfully')
+//   console.log('changePassword success ran. and nothing was returned')
+// }
+//
+// const changePasswordFailure = function (error) {
+//   $('#message').text('Error on change password')
+//   con
 
-const changePasswordFailure = function (error) {
-  $('#message').text('Error on change password')
-  console.log('changePassword failure ran. error is :', error)
+const createNewGameSucess = function () {
+  $('#message').text('New Game Created')
+  console.log('new game created successfully')
+}
+const createNewGameFailure = function () {
+  $('#message').text('Error on Create')
+  console.log('new game created successfully')
 }
 
 module.exports = {
-  signUpSuccess,
-  signUpFailure,
+  // signUpSuccess,
+  // signUpFailure,
   signInSuccess,
   signInFailure,
   signOutSuccess,
   signOutFailure,
-  changePasswordSuccess,
-  changePasswordFailure
+  // changePasswordSuccess,
+  // changePasswordFailure
+  createNewGameSucess,
+  createNewGameFailure
+
 }

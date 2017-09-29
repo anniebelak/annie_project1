@@ -1,15 +1,15 @@
-'use strict'
-
-const player1 = 'x'
-const player2 = 'o'
-
-const gameBoard = ['', '', '', '', '', '', '', '', '']
-// var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// 'use strict'
 //
+// const player1 = 'x'
+// const player2 = 'o'
+//
+// const gameBoard = ['', '', '', '', '', '', '', '', '']
+// // var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// //
+// // // .on('click') = $(this).attr('id')
 // // .on('click') = $(this).attr('id')
-// .on('click') = $(this).attr('id')
-// .setAttribute = player1
-gameBoard.push('id')
+// // .setAttribute = player1
+// gameBoard.push('id')
 
 // const startGame = function {
 // player1Turn === true
