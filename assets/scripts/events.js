@@ -45,25 +45,43 @@ const onChangePassword = function (event) {
 }
 
 let player = 'x'
-let winner = 'x'
+let gameOver = false
 
-const gameBoard = ['', '', '', '', '', '', '', '', '']
+let gameBoard = ['', '', '', '', '', '', '', '', '']
 
 const onClick = function (event) {
   event.preventDefault()
-  const value = $(this).attr('id')
-  console.log(value)
-  $(this).text(player)
-
-  gameBoard[value] = player
-  console.log(gameBoard)
-  if (player === 'x') {
-    player = 'o'
-  } else {
-    player = 'x'
+  if (gameOver === true) {
+    console.log('hello')
+    $('#gameOver').text('GAME OVER!!')
+    gameBoard = ['', '', '', '', '', '', '', '', '']
+    return
   }
-  determineWinner(gameBoard)
+  const value = $(this).attr('id')
+  if ($(this).text() !== '') {
+    console.log('already selected please try again')
+    $('#try').text('Please try again, already selected play.')
+  } else {
+    $(this).text(player)
+    gameBoard[value] = player
+    determineWinner(gameBoard)
+    // determineDraw(gameBoard)
+    if (player === 'x') {
+      player = 'o'
+    } else {
+      player = 'x'
+    }
+  }
 }
+// gameBoard[value] = player
+console.log(gameBoard)
+// if (player === 'x') {
+//   player = 'o'
+// } else {
+//   player = 'x'
+// // }
+// determineWinner(gameBoard)
+// }
 const determineWinner = function (gameBoard) {
   if ((gameBoard[1] !== '' && gameBoard[0] === gameBoard[1] && gameBoard[1] === gameBoard[2]) ||
 (gameBoard[3] !== '' && gameBoard[3] === gameBoard[4] && gameBoard[4] === gameBoard[5]) ||
@@ -73,79 +91,16 @@ const determineWinner = function (gameBoard) {
 (gameBoard[2] !== '' && gameBoard[2] === gameBoard[5] && gameBoard[5] === gameBoard[8]) ||
 (gameBoard[0] !== '' && gameBoard[0] === gameBoard[4] && gameBoard[4] === gameBoard[8]) ||
 (gameBoard[6] !== '' && gameBoard[6] === gameBoard[4] && gameBoard[4] === gameBoard[2])) {
-    console.log('You are the Winner')
+    console.log(player + 'hello')
+    $('#win').text('Player' + ' ' + player + ' ' + 'is the Winner!!!')
+    gameOver = true
+  } else if (gameOver === false) {
+    if (!gameBoard.some(element => element === '')) {
+      gameOver = true
+    }
   }
 }
-// const determineWinner = function (gameBoard) {
-//   if (gameBoard === ['x', 'x', 'x', 'o', 'o', '', '', '', '']) {
-//     winner = 'x'
-//     console.log('X is the winner!!!')
-//   } else {
-//     if (gameBoard === ['o', 'o', 'o', 'x', 'x', '', '', '', 'x']) {
-//       winner = 'o'
-//       console.log('O is the Winner!!!')
-//     } else {
-//       if (gameBoard === ['o', 'o', '', 'x', 'x', 'x', '', 'o', 'o']) {
-//         winner = 'x'
-//         console.log('X is a Winner!!!')
-//       } else {
-//         if (gameBoard === ['x', 'x', '', 'o', 'o', 'o', '', 'x', ' ']) {
-//           winner = 'o'
-//           console.log('O is the Winner!!!')
-//         } else {
-//           if (gameBoard === [' ', '', '', 'o', 'o', ' ', 'x', 'x', 'x']) {
-//             winner = 'x'
-//             console.log('X is the Winner!!!')
-//           } else {
-//             if (gameBoard === [' ', '', '', 'x', 'x', ' ', 'o', 'o', 'o']) {
-//               winner = 'o'
-//               console.log('O is the Winner!!!')
-//             } else {
-//               if (gameBoard === [' ', '', 'x', 'o', 'x', ' ', 'x', 'o', 'o']) {
-//                 winner = 'x'
-//                 console.log('X is the Winner!!!')
-//               } else {
-//                 if (gameBoard === [' ', '', 'o', 'x', 'o', ' ', 'o', 'x', 'x']) {
-//                   winner = 'o'
-//                   console.log('O is the Winner!!!')
-//                 } else {
-//                   if (gameBoard === [' x', '', 'o', ' ', 'x', ' ', 'o', ' ', 'x']) {
-//                     winner = 'x'
-//                     console.log('X is the Winner!!!')
-//                   } else {
-//                     if (gameBoard === [' o', '', 'o', ' ', 'o', ' ', '', 'x', 'o']) {
-//                       winner = 'o'
-//                       console.log('O is the Winner!!')
-//                     } else {
-//                       console.log('Please Try Again!!')
-//                     }
-//                   }
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-// const onClick = function (event) {
-//   event.preventDefault()
-//   const value = $(this).attr('id')
-//   console.log(value)
-//   $(this).text(player)
-//
-//   gameBoard[value] = player
-//   console.log(gameBoard)
-//   if (player === 'x') {
-//     player = 'o'
-//   } else {
-//     player = 'x'
-//   }
-//   determineWinner()
-// }
-// determineWinner()
-// console.log(winner)
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -157,4 +112,5 @@ const addHandlers = () => {
 module.exports = {
   addHandlers,
   determineWinner
+  // determineDraw
 }
