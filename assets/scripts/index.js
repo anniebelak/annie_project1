@@ -13,6 +13,7 @@ $(() => {
 // use require without a reference to ensure a file is bundled
 // require('./example')
 const scriptsEvents = require('./events.js')
+
 // On document ready
 $(() => {
   scriptsEvents.addHandlers()
