@@ -4,17 +4,20 @@ const store = require('./store')
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
   console.log(data)
+  $('#sign-up').hide()
 }
 
 const signUpFailure = function (error) {
   $('#message').text('Error on sign up')
   console.log(error)
+  $('#sign-up').hide()
 }
 
 const signInSuccess = function (response) {
   $('#message').text('Signed in successfully')
   console.log('signIn success ran. data is :', response)
   store.user = response.user
+  $('#sign-in').hide()
 }
 
 const signInFailure = function (error) {
@@ -26,6 +29,9 @@ const signOutSuccess = function (data) {
   $('#message').text('Signed out successfully')
   console.log('signOut success ran. and nothing was returned', data)
   store.user = null
+  $('#sign-in').show()
+  $('#sign-up').show()
+  $('#change-password').show()
 }
 
 const signOutFailure = function (error) {
@@ -36,11 +42,13 @@ const signOutFailure = function (error) {
 const changePasswordSuccess = function (data) {
   $('#message').text('Changed password successfully')
   console.log('changePassword success ran. and nothing was returned', data)
+  $('#change-password').hide()
 }
 
 const changePasswordFailure = function (error) {
   $('#message').text('Error on change password')
   console.log('changePassword failure ran. error is :', error)
+  $('#change-password').hide()
 }
 
 const createNewGameSucess = function (data) {
@@ -61,7 +69,7 @@ const updateGameFailure = function () {
   console.log('new game created successfully')
 }
 const getGameSucess = function (data) {
-  $('#message').text('Total Number of games, ')
+  $('#message').text('Total Number of Games ' + data.games.length)
   console.log('Total number of games', data.games.length)
 }
 const getGameFailure = function () {

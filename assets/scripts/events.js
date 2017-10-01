@@ -13,6 +13,9 @@ const onSignUp = function (event) {
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
+  $('#email').val('')
+  $('#password1').val('')
+  $('#password2').val('')
 }
 
 const onSignIn = function (event) {
@@ -23,6 +26,8 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
+  $('#sign-in-val').val('')
+  $('#sign-password').val('')
 }
 
 const onSignOut = function (event) {
@@ -32,6 +37,8 @@ const onSignOut = function (event) {
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
+  $('#password3').val('')
+  $('#password4').val('')
 }
 
 const onChangePassword = function (event) {
@@ -61,6 +68,7 @@ const createNewGame = function (event) {
   $('.square').text('')
   $('#win').text('')
   $('#gameOver').text('')
+  $('.square').show()
 }
 
 const updateGame = function (event) {
@@ -156,6 +164,7 @@ const addHandlers = () => {
   $('#create').on('click', createNewGame)
   $('.square').on('click', updateGame)
   $('#get').on('click', getGame)
+  $('.square').hide()
 }
 
 module.exports = {
