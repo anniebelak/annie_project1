@@ -7,7 +7,6 @@ const ui = require('./ui')
 
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('sign up ran!')
 
   const data = getFormFields(this)
   api.signUp(data)
@@ -20,7 +19,6 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('sign in ran!')
 
   const data = getFormFields(this)
   api.signIn(data)
@@ -32,7 +30,6 @@ const onSignIn = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  console.log('sign out ran')
 
   api.signOut()
     .then(ui.signOutSuccess)
@@ -43,7 +40,6 @@ const onSignOut = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log('change password ran!')
 
   const data = getFormFields(this)
   api.changePassword(data)
@@ -58,16 +54,15 @@ const createNewGame = function (event) {
   gameOver = false
 
   event.preventDefault()
-  console.log('game created')
 
   const data = getFormFields(event.target)
-  console.log('data is', data)
   api.create(data)
     .then(ui.createNewGameSucess)
     .catch(ui.createNewGameFailure)
   $('.square').text('')
   $('#win').text('')
   $('#gameOver').text('')
+  $('try').text('')
   $('.square').show()
 }
 
@@ -84,14 +79,12 @@ const updateGame = function (event) {
   }
 
   event.preventDefault()
-  console.log('update made')
   api.update(data)
     .then(ui.updateGameSucess)
     .catch(ui.updateGameFailure)
 }
 const getGame = function (event) {
   event.preventDefault()
-  console.log('Total Games')
   api.index()
     .then(ui.getGameSucess)
     .catch(ui.getGameFailure)
@@ -105,14 +98,12 @@ let gameBoard = ['', '', '', '', '', '', '', '', '']
 const onClick = function (event) {
   event.preventDefault()
   if (gameOver === true) {
-    console.log('hello')
     $('#gameOver').text('GAME OVER!!')
     gameBoard = ['', '', '', '', '', '', '', '', '']
     return
   }
   const value = $(this).attr('id')
   if ($(this).text() !== '') {
-    console.log('already selected please try again')
     $('#try').text('Please try again, already selected play.')
   } else {
     $(this).text(player)
@@ -126,15 +117,7 @@ const onClick = function (event) {
     }
   }
 }
-// gameBoard[value] = player
-console.log(gameBoard)
-// if (player === 'x') {
-//   player = 'o'
-// } else {
-//   player = 'x'
-// // }
-// determineWinner(gameBoard)
-// }
+
 const determineWinner = function (gameBoard) {
   if ((gameBoard[1] !== '' && gameBoard[0] === gameBoard[1] && gameBoard[1] === gameBoard[2]) ||
 (gameBoard[3] !== '' && gameBoard[3] === gameBoard[4] && gameBoard[4] === gameBoard[5]) ||
