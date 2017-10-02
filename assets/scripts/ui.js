@@ -28,6 +28,7 @@ const signOutSuccess = function (data) {
   $('#sign-in').show()
   $('#sign-up').show()
   $('#change-password').show()
+  $('.square').hide()
 }
 
 const signOutFailure = function (error) {
