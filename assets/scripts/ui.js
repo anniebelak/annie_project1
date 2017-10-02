@@ -15,6 +15,7 @@ const signInSuccess = function (response) {
   $('#message').text('Signed in successfully')
   store.user = response.user
   $('#sign-in').hide()
+  $('#create').show()
 }
 
 const signInFailure = function (error) {

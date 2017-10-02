@@ -149,6 +149,7 @@ const addHandlers = () => {
   $('.square').on('click', updateGame)
   $('#get').on('click', getGame)
   $('.square').hide()
+  $('#create').hide()
 }
 
 module.exports = {
