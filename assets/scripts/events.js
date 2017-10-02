@@ -62,7 +62,7 @@ const createNewGame = function (event) {
   $('.square').text('')
   $('#win').text('')
   $('#gameOver').text('')
-  $('try').text('')
+  $('#tie').text('')
   $('.square').show()
 }
 
