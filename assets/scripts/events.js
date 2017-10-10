@@ -15,6 +15,8 @@ const onSignUp = function (event) {
   $('#email').val('')
   $('#password1').val('')
   $('#password2').val('')
+  $('#create').hide()
+  $('#get').hide()
 }
 
 const onSignIn = function (event) {
@@ -26,6 +28,8 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure)
   $('#sign-in-val').val('')
   $('#sign-password').val('')
+  $('#create').hide()
+  $('#get').hide()
 }
 
 const onSignOut = function (event) {
@@ -40,12 +44,19 @@ const onSignOut = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
+  $('#password3').show()
+  $('#password4').show()
 
   const data = getFormFields(this)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
+
+const updatePassword = function (event) {
+  $('#change-password').show()
+}
+
 const createNewGame = function (event) {
   gameBoard = ['', '', '', '', '', '', '', '', '']
   // $('.square').text('')
@@ -98,6 +109,7 @@ let gameBoard = ['', '', '', '', '', '', '', '', '']
 
 const onClick = function (event) {
   event.preventDefault()
+  $('#try').text('')
   if (gameOver === true) {
     $('#gameOver').text('GAME OVER!!')
     gameBoard = ['', '', '', '', '', '', '', '', '']
@@ -128,7 +140,6 @@ const determineWinner = function (gameBoard) {
 (gameBoard[2] !== '' && gameBoard[2] === gameBoard[5] && gameBoard[5] === gameBoard[8]) ||
 (gameBoard[0] !== '' && gameBoard[0] === gameBoard[4] && gameBoard[4] === gameBoard[8]) ||
 (gameBoard[6] !== '' && gameBoard[6] === gameBoard[4] && gameBoard[4] === gameBoard[2])) {
-    console.log(player + 'hello')
     $('#win').text('Player' + ' ' + player + ' ' + 'is the Winner!!!')
     gameOver = true
   } else if (gameOver === false) {
@@ -150,6 +161,10 @@ const addHandlers = () => {
   $('#get').on('click', getGame)
   $('.square').hide()
   $('#create').hide()
+  $('#get').hide()
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('#passwordShow').on('click', updatePassword)
 }
 
 module.exports = {

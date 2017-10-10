@@ -8,7 +8,6 @@ const signUpSuccess = function (data) {
 
 const signUpFailure = function (error) {
   $('#message').text('Error on sign up!', error)
-  $('#sign-up').hide()
 }
 
 const signInSuccess = function (response) {
@@ -16,6 +15,12 @@ const signInSuccess = function (response) {
   store.user = response.user
   $('#sign-in').hide()
   $('#create').show()
+  $('#get').show()
+  $('#change-password').show()
+  $('#sign-out').show()
+  $('#sign-up').hide()
+  // $('#password3').hide()
+  // $('#password4').hide()
 }
 
 const signInFailure = function (error) {
@@ -27,8 +32,15 @@ const signOutSuccess = function (data) {
   store.user = null
   $('#sign-in').show()
   $('#sign-up').show()
-  $('#change-password').show()
   $('.square').hide()
+  $('#sign-out').hide()
+  $('#create').hide()
+  $('#get').hide()
+  $('#win').text('')
+  $('#gameOver').text('')
+  $('#tie').text('')
+  $('#try').text('')
+  $('#change-password').hide()
 }
 
 const signOutFailure = function (error) {
@@ -37,12 +49,14 @@ const signOutFailure = function (error) {
 
 const changePasswordSuccess = function (data) {
   $('#message').text('Changed password successfully')
-  $('#change-password').hide()
+  // $('#password3').hide()
+  // $('#password4').hide()
+  $('#password3').val('')
+  $('#password4').val('')
 }
 
 const changePasswordFailure = function (error) {
   $('#message').text('Error on change password', error)
-  $('#change-password').hide()
 }
 
 const createNewGameSucess = function (data) {
