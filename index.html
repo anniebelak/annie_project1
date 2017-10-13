@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic-Tac-Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+<body>
+      <h2 id= "title">THE AMAZING GAME OF TIC-TAC-TOE</h2>
+ <body class="container-fluid">
+   <div class="container-fluid">
+      <div id='message'></div>
+      <form id="sign-up">
+        <fieldset>
+          <legend>Sign up!</legend>
+          <input id="email" type="text" name="credentials[email]" placeholder="Enter Email">
+          <input id="password1"type="text" name="credentials[password]"placeholder="Enter Password">
+          <input id="password2"type="text" name="credentials[password_confirmation]"placeholder="Enter Password Confirmatiom">
+          <input type="submit" name="submit" value="Sign up!">
+          </fieldset>
+      </form>
+      <form id="sign-in">
+        <fieldset>
+          <legend>Sign In!</legend>
+          <input id="sign-in-val" type="text" name="credentials[email]" placeholder="Enter Email">
+          <input id="sign-password"type="text" name="credentials[password]"placeholder="Enter Password">
+          <input type="submit" name="submit" value="Sign In!">
+          </fieldset>
+      </form>
+    <form id="sign-out">
+        <fieldset>
+        <legend>Sign Out!</legend>
+        <input type="submit" name="submit" value="Sign out!">
+        </fieldset>
+    </form>
+      <form id="change-password">
+        <fieldset>
+          <legend>Change Password!</legend>
+          <input id="password3" type="text" name="passwords[old]" placeholder="Old Password">
+          <input id="password4" type="text" name="passwords[new]" placeholder="New Password">
+          <input type="submit" name="submit" value="Change PASSWORD!">
+          </fieldset>
+      </form>
+    </div>
+<br>
+<input type="button" id="create" value="Create Game">
+<input type="button" id="get" value="Get Games">
+<h3 id="win"></h3>
+<h3 id ="tie"></h3>
+<h3 id="try"></h3>
+<h3 id="gameOver"></h3>
+
+<br>
+      <table class="tic-tac-toe" id="tic-tac-toe-1">
+
+      <tr>
+       <td class="square" id="0"></td>
+       <td class="square" id="1"></td>
+       <td class="square" id="2"></td>
+     </tr>
+
+    <tr>
+       <td class="square" id="3"></td>
+       <td class="square" id="4"></td>
+       <td class="square" id="5"></td>
+
+    </tr>
+    <tr>
+      <td class="square" id="6"></td>
+      <td class="square" id="7"></td>
+      <td class="square" id="8"></td>
+</tr>
+    </table>
+
+
+    </body>
+</html>
